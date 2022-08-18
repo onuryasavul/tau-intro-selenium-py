@@ -20,6 +20,3 @@ def test_basic_duckduckgo_search(browser):
 
     for title in result_page.result_link_titles():
         assert PHRASE.lower() in title.lower()
-
- 
-    raise Exception("Incomplete Test")

@@ -1,3 +1,5 @@
+from re import search
+from turtle import title
 from selenium.webdriver.common.by import By
 
 
@@ -11,13 +13,15 @@ class DuckDuckGoResultPage:
         self.browser = browser
 
     def result_link_titles(self):
-
-        return []
+        links = self.browser.find_elements(*self.RESULT_LINKS)
+        titles = [link.text for link in links]
+        return titles
 
     def search_input_value(self):
-        
-        return ""
+        search_input = self.browser.find_element(*self.SEARCH_INPUT)
+        value = search_input.get_attribute('value')
+        return value
 
     def title(self):
-
-        return ""
+        return self.browser.title
+    
